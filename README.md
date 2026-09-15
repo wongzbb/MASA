@@ -1,11 +1,24 @@
-# MASA Anonymous Review Package
+# MASA
 
-This directory contains the minimal source needed to evaluate MASA.
+Code for **Sparse MLLM Anchors, Dense Adaptation: Breaking the Self-Referential Loop in Wild Test-Time Adaptation**.
 
-## Package layout
+**Authors:** Zhenbin Wang, Lei Zhang, Lituan Wang, Yan Wang, Zhao Zhang, Wei Huang<br>
+**Affiliation:** Sichuan University<br>
+**Corresponding author:** Lei Zhang<br>
+**Contact:** [wangzhenbin@stu.scu.edu.cn](mailto:wangzhenbin@stu.scu.edu.cn)
+
+MASA combines sparse semantic descriptions from a frozen multimodal large language model with an online visual-semantic prototype memory for wild test-time adaptation. This repository contains the adaptation implementation and evaluation entry point for ImageNet-C.
+
+## Framework
+
+[![MASA framework](docs/images/framework.png)](docs/images/framework.pdf)
+
+Sparse MLLM anchor descriptions are propagated to neighboring samples and stored in a visual-semantic prototype memory to guide normalization-affine adaptation. Click the figure to view the original PDF from the paper.
+
+## Contents
 
 ```text
-MASA/
+GTA/
 |-- main.py
 |-- masa/
 |   |-- __init__.py
@@ -17,11 +30,22 @@ MASA/
 |   |-- cov_resnet50_gn_timm.npy
 |   |-- cov_vitbase_timm.npy
 |   `-- label_shift_indices.npy
+|-- docs/
+|   `-- images/
+|       |-- framework.png
+|       `-- framework.pdf
 |-- requirements.txt
 `-- README.md
 ```
 
-## Environment
+## Environment Setup
+
+Clone the repository and enter its root directory:
+
+```bash
+git clone https://github.com/wongzbb/GTA.git
+cd GTA
+```
 
 Pinned dependency versions are listed in `requirements.txt`.
 
@@ -30,22 +54,21 @@ python -m pip install -r requirements.txt
 python main.py --help
 ```
 
-## Required local assets
+## Required Local Assets
 
-Datasets and model weights are intentionally not bundled. Supply these paths on
-the command line:
+Datasets and model checkpoints must be provided separately. Supply their paths on the command line:
 
 - `--data_corruption`: ImageNet-C root with
   `<corruption>/<level>/<class>/<image>` layout.
 - `--model_checkpoint`: classifier checkpoint in `.safetensors`, `.pth`,
   or `.npz` format.
-- `--semantic_mllm_model`: local MLLM directory for a real MLLM run.
+- `--semantic_mllm_model`: local MLLM directory for semantic description generation.
 - `--semantic_text_encoder_checkpoint`: local text-encoder checkpoint.
 
 
-## Evaluation commands
+## Evaluation
 
-Run commands from this directory. The following command evaluates label shift
+Run commands from the repository root. The following command evaluates label shift
 with a local Qwen-family backend:
 
 ```bash
@@ -98,4 +121,3 @@ python main.py \
 `--max_batches 0` runs the complete evaluation. The bundled label-shift index
 file is the default ordering for the reported label-shift setting; another
 ordering can be supplied with `--label_shift_indices`.
-
