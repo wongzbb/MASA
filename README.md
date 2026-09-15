@@ -3,11 +3,8 @@
 Code for **Sparse MLLM Anchors, Dense Adaptation: Breaking the Self-Referential Loop in Wild Test-Time Adaptation**.
 
 **Authors:** Zhenbin Wang, Lei Zhang, Lituan Wang, Yan Wang, Zhao Zhang, Wei Huang<br>
-**Affiliation:** Sichuan University<br>
-**Corresponding author:** Lei Zhang<br>
-**Contact:** [wangzhenbin@stu.scu.edu.cn](mailto:wangzhenbin@stu.scu.edu.cn)
 
-MASA combines sparse semantic descriptions from a frozen multimodal large language model with an online visual-semantic prototype memory for wild test-time adaptation. This repository contains the adaptation implementation and evaluation entry point for ImageNet-C.
+MASA combines sparse semantic descriptions from a frozen multimodal large language model with an online visual-semantic prototype memory for wild test-time adaptation.
 
 ## Framework
 
