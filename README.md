@@ -1,18 +1,15 @@
-# MASA
+<div id="top" align="center">
 
-Code for **Sparse MLLM Anchors, Dense Adaptation: Breaking the Self-Referential Loop in Wild Test-Time Adaptation**.
+# Sparse MLLM Anchors, Dense Adaptation: Breaking the Self-Referential Loop in Wild Test-Time Adaptation
+  
+  [![arXiv](https://img.shields.io/badge/arXiv-2406.15910-b31b1b.svg)](http://arxiv.org/abs/2609.17040)
 
-**Authors:** Zhenbin Wang, Lei Zhang, Lituan Wang, Yan Wang, Zhao Zhang, Wei Huang<br>
+</div>
 
-MASA combines sparse semantic descriptions from a frozen multimodal large language model with an online visual-semantic prototype memory for wild test-time adaptation.
-
-## Framework
 
 [![MASA framework](docs/images/framework.png)](docs/images/framework.pdf)
 
 Sparse MLLM anchor descriptions are propagated to neighboring samples and stored in a visual-semantic prototype memory to guide normalization-affine adaptation. Click the figure to view the original PDF from the paper.
-
-## Contents
 
 ```text
 GTA/
